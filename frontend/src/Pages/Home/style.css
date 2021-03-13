@@ -1,0 +1,78 @@
+.container_home{
+    height: 100%;
+    min-height: 100vh;
+    background: #FFF;
+
+    padding: 50px 40px !important;
+}
+.container_home .container-f-g{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.container_home .container-f-g .container_cadastro{
+    padding: 0 20px;
+}
+.container_home .container_filter{
+    padding: 0;
+}
+.container_home .container_filter .caixa-in{
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+}
+.ct_l{
+    width: 80px;
+    display: flex;
+}
+.container_home .container_filter .caixa-in .periodo{
+    max-width: 100px !important;
+}
+.container_home .container_filter .caixa-in .text-nome{
+    margin-left: 20px !important;
+}
+.container_home .container_filter .caixa-in .nome{
+    margin-left: 15px !important;
+    max-width: 250px !important;
+}
+.container_home .container_filter .form-control:focus{
+    box-shadow: 0 0 0 #FFF;
+}
+.container_home .table_my tbody tr{
+    transition: background 0.2s !important;
+    background: #FFF;
+}
+.container_home .table_my tbody tr:hover{
+    background: rgb(242, 242, 242) !important;
+}
+.container_home .table_my thead tr{
+    background: #DDD;
+}
+.container_home .table_my thead tr td a{
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.container_home .table_my thead tr td{
+    color: #555;
+    font-weight: 500;
+}
+.container_home .table_my tbody tr{
+    border-width: 0 !important;
+}
+.container_home .table_my tbody tr th{
+    color: #555;
+    font-family: 'Roboto', Arial;
+    font-weight: 500;
+}
+.container_home .table_my tbody tr .button_al{
+    margin: 5px 15px;
+    padding: 3px 10px;
+    color: #FFF;
+}
+.container_home .table_my tbody tr .dub-id{
+    font-weight: 700;
+}

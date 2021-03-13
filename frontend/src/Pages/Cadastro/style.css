@@ -1,0 +1,44 @@
+.cont_cadastro{
+    height: 100%;
+    min-height: 100vh;
+    background: #FFF;
+
+    padding: 50px 40px !important;
+}
+.ct_cadastro{
+    border: 1px solid #DDD;
+    box-shadow: 1px 5px 5px #DDD;
+    padding: 5px 0;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.Legenda_aluno{
+    padding: 20px 20px;
+}
+.rede_social{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.curso__ex{
+    margin-top: 20px;
+}
+.ct_user_coment{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+}
+.cont_fcal{
+    border: 1px solid #DDD;
+    box-shadow: 1px 5px 5px #DDD;
+    padding: 5px 0;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.cl_button{
+    margin-bottom: -70px;
+}
