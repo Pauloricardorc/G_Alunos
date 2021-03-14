@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../Components/Header/Header'
 import Api from '../services/api'
 import InputMask from 'react-input-mask'
 import './style.css'
 
-import { useHistory } from 'react-router-dom';
 
 function Cadastro() {
+    
+    const history = useHistory();
 
-// -----------------Consts----------------- //
     const [ aluno_nomeCompleto, setaluno_nomeCompleto ] = useState('');
     const [ aluno_dataNasc, setaluno_dataNasc ] = useState('');
     const [ aluno_telefone, setaluno_telefone ] = useState('');
@@ -20,42 +21,37 @@ function Cadastro() {
     const [ aluno_cursoExtensao, setaluno_cursoExtensao ] = useState('');
     const [ facul_semestre, setfacul_semestre ] = useState('1');
     const [ facul_periodo, setfacul_periodo ] = useState('1');
-    const [ facul_curso, setfacul_curso ] = useState('');
     const [ facul_disciplina, setfacul_disciplina ] = useState('');
-// ---------------------------------------- //
+    const [ facul_curso, setfacul_curso ] = useState('');
 
-    const history = useHistory();
-
-    async function formulario() {
+    const Enviar = async () => {
 
         const data = {
             aluno_nomeCompleto, aluno_dataNasc, aluno_email, aluno_linkedin, aluno_github, aluno_computador, aluno_profissao, aluno_cursoExtensao,
-                facul_semestre, facul_periodo, facul_curso, facul_disciplina,
+                facul_semestre, facul_periodo,facul_disciplina, facul_curso,
         }
 
-        console.log(data)
-
-        try {
-            const res = await Api.post('create', data)
-            history.goBack()
-        } catch (error) {
-            alert('Erro ao realizar cadastro')
+        if(aluno_nomeCompleto == '' || aluno_dataNasc == '' || aluno_email == '' || facul_disciplina == '' || facul_curso == ''){
+            history.replace('/cadastro')
+            console.log(facul_disciplina)
+            console.log(facul_curso)
         }
-
+        
+        const res = await Api.post('create', data).finally( () => {
+            history.push('/')
+        })
     }
-
-    
     return(
         <div className="container_ct">
             <Header/>
-            <form onSubmit={formulario} >
+            <form className="needs-validation" novalidate>
                 <div className="container cont_cadastro">
                     <div className="ct_cadastro row">
                         <legend className="Legenda_aluno">Info.Aluno</legend>
                         <div className="row nm_dc col-md-12">
                             <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Nome Completo</label>
-                                <input type="text" value={aluno_nomeCompleto} onChange={e => setaluno_nomeCompleto(e.target.value)} class="form-control" id="inputEmail4" required />
+                                <input type="text" value={aluno_nomeCompleto} id="validationDefault01" onChange={e => setaluno_nomeCompleto(e.target.value)} class="form-control" required />
                             </div>
                             <div class="col-md-3">
                                 <label for="dt_nascimento" class="form-label">Data de Nascimento</label>
@@ -63,7 +59,7 @@ function Cadastro() {
                             </div>
                             <div class="col-md-3">
                                 <label for="aluno_telefone" class="form-label">Contato</label>
-                                <InputMask mask="(99) 9 9999-9999" type="text" value={aluno_telefone} onChange={e => setaluno_telefone(e.target.value)} class="form-control" id="aluno_telefone" required />
+                                <InputMask mask="(99) 9 9999-9999" type="text" value={aluno_telefone} onChange={e => setaluno_telefone(e.target.value)} class="form-control" id="aluno_telefone"/>
                             </div>
                         </div>
 
@@ -109,14 +105,14 @@ function Cadastro() {
                         <div className="row p-3">
                             <div class="col-md-3">
                                 <label for="semestre" class="form-label">Semestre</label>
-                                <select class="form-control" value={facul_semestre} onChange={e => setfacul_semestre(e.target.value)} id="semestre" required >
+                                <select class="form-control" value={facul_semestre} onChange={e => setfacul_semestre(e.target.value)} id="semestre">
                                     <option selected value="1">2021/1</option>
                                     <option value="2">2021/2</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <label for="periodo" class="form-label">Período</label>
-                                <select class="form-control" value={facul_periodo} onChange={e => setfacul_periodo(e.target.value)} id="periodo" required >
+                                <select class="form-control" value={facul_periodo} onChange={e => setfacul_periodo(e.target.value)} id="periodo">
                                     <option selected value="1°">1°</option>
                                     <option value="2">2°</option>
                                     <option value="3">3°</option>
@@ -131,16 +127,16 @@ function Cadastro() {
                         <div className="row p-3">
                             <div class="col-md-5">
                                 <label for="disciplinas" class="form-label">Disciplinas</label>
-                                <input type="text" value={facul_disciplina} onChange={e => setfacul_disciplina(e.target.value)} class="form-control" id="disciplinas" required/>
+                                <input type="text" value={facul_disciplina} onChange={e => setfacul_disciplina(e.target.value)} class="form-control" id="facul_disciplina" required/>
                             </div>
                             <div class="col-md-5">
                                 <label for="curso" class="form-label">Curso</label>
-                                <input type="text"  value={facul_curso} onChange={e => setfacul_curso(e.target.value)} class="form-control" id="curso" required/>
+                                <input type="text"  value={facul_curso} onChange={e => setfacul_curso(e.target.value)} class="form-control" id="facul_curso" required/>
                             </div>
                         </div>
 
                         <div className="row cl_button center col-md-3 p-5">
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <button type="button" onClick={Enviar} class="btn btn-primary">Cadastrar</button>
                         </div>
                     </div>
                 </div>

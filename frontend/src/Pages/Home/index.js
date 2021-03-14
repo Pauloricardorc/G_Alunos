@@ -6,8 +6,13 @@ import { Link, useHistory } from 'react-router-dom'
 
 import './style.css'
 import '../Components/js/exemple.js'
+import { useLoading } from '@agney/react-loading'
 
 function Home () {
+
+    const { containerProps, indicatorEl } = useLoading({
+        loading: true,
+      });
 
     const history = useHistory()
 
@@ -34,15 +39,15 @@ function Home () {
 
     useEffect(() => {
         api.get('/list').then(resp => setAluno(resp.data))
-    }, [Aluno])
+    }, [])
 
     return(
         <div className="container_gl">
             <Header />
-            <div className="container container_home">
+            <div className="container container_home"   {...containerProps}>
                 <div className="container_tables table-responsive">
-                    <div className="container-f-g">
-                        <div className="container_filter col-8">
+                    <div className="container f_g row">
+                        <div className="container_filter col-6">
                             <div className="input-group caixa-in">
                                 <div className="ct_l">
                                     <select className="form-control periodo" value={periodo} onChange={e => setPeriodo(e.target.value)} placeholder="Período" type="text">
@@ -69,11 +74,17 @@ function Home () {
                                 </svg></i></button>
                             </div>
                         </div>
-                        <div className="container_cadastro">
+                        <div className="container_cadastro col-auto">
                             <Link to='/cadastro' class="btn btn-light">Novo Cadastro</Link>
                         </div>
                     </div>
+                    
                     <table className="table table-bordered table_my">
+                    {(Aluno.length == 0) && 
+                        <div className="container_loading">
+                            <div className="loading">{indicatorEl}</div>
+                        </div>
+                    }
                         <thead>
                             <tr>
                                 <td><a href="">Semestre</a></td>

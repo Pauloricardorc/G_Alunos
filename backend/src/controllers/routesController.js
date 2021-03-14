@@ -5,11 +5,11 @@ module.exports = {
     async list(request, response) {
 
         const data = await 
-                database('aluno')
-                        .join('faculdade', 'aluno.aluno_idAluno', '=', 'faculdade.facul_idFacul')
-                            .select('*');
-
-        return response.json(data);
+            database('aluno')
+                    .join('faculdade', 'aluno.aluno_idAluno', '=', 'faculdade.facul_idFacul')
+                    .select('*') 
+                            
+        return response.json(data)
 
     },
 
@@ -23,13 +23,13 @@ module.exports = {
         await database('aluno').insert({
             aluno_nomeCompleto, aluno_dataNasc, aluno_telefone, aluno_email, aluno_linkedin, aluno_github,
                 aluno_computador, aluno_profissao, aluno_cursoExtensao
-        }).limit(1);
+        });
 
         await database('faculdade').insert({
             facul_semestre, facul_periodo, facul_curso, facul_disciplina
-        }).limit(1);
+        });
 
-        return response.json("Cadastro realizado com sucesso");
+        return response.json({ 'status': 200})
 
     },
 
