@@ -15,20 +15,16 @@
 .table_my .container_loading{
     position: absolute;
     width: 100%;
-    padding: 50px 0;
-    left: 0;
+    padding: 20px 0;
     right: 0;
 }
-.table_my .loading{
+.table_my .container_loading .loading{
     display: flex;
     align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
     height: 100%;
-}
-.loading svg{
-    width: auto;
 }
 .container_home .container_cadastro{
     padding: 0;
@@ -55,16 +51,80 @@
     padding: 0 !important;
     margin: 0 !important;
 }
-
-.container_home .container_filter .caixa-in .periodo{
-    max-width: 100px !important;
+@media screen and (max-width: 750px){
+    .f_g{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .container_home .container_filter .caixa-in{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .container_home .container_filter .caixa-in .ct_l{
+        display: flex;
+        flex-direction: row;
+    }
+    .container_home .container_filter .caixa-in .ct-input{
+        display: flex;
+        flex-direction: row;
+        width: 230px !important; 
+        padding: 10px 0;
+    }
+    .container_home .container_filter .caixa-in .ct_button_header{
+        display: flex;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .container_home .container_filter .caixa-in .ct_button_header button{
+        margin: 0 20px !important;
+        width: 80px;
+    }
+    .container_cadastro{
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .container_cadastro .button_cadastro{
+        display: flex;
+        justify-content: center;
+        margin: 15px 0;
+    }
+    .container_home{
+        padding: 0 !important;
+    }
 }
-.container_home .container_filter .caixa-in .text-nome{
-    margin-left: 20px !important;
+.container_cadastro{
+    display: flex;
+    align-items: center !important;
 }
-.container_home .container_filter .caixa-in .nome{
-    margin-left: 15px !important;
-    max-width: 250px !important;
+.container_cadastro .button_cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px !important;
+}
+.container_home .container_filter .caixa-in .ct-input{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    padding: 10px 10px;
+}
+.container_home .container_filter .caixa-in .ct_button_header{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container_home .container_filter .caixa-in .ct_button_header button{
+    margin: 0 10px;
+}
+.container_cadastro .button_cadastro{
+    width: 100%;
+    border: 0;
+    margin: 15px 0;
 }
 .container_home .container_filter .form-control:focus{
     box-shadow: 0 0 0 #FFF;

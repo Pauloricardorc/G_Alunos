@@ -29,7 +29,7 @@ module.exports = {
             facul_semestre, facul_periodo, facul_curso, facul_disciplina
         });
 
-        return response.json({ 'status': 200})
+        return response.status(200).send({ "status": 200})
 
     },
 

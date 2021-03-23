@@ -1,0 +1,28 @@
+.Container_confirm{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Container_confirm .Modal_Container{
+    background: #F5F5F5;
+    border: 1px solid #DDD;
+    box-shadow: 2px 4px 7px #DDD;
+}
+
+.Container_confirm .Modal_Container .titulo_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #333;
+}.Container_confirm .Modal_Container .main_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px !important;
+    height: 200px;
+    padding-right: 40px;
+}

@@ -33,13 +33,11 @@ function Cadastro() {
 
         if(aluno_nomeCompleto == '' || aluno_dataNasc == '' || aluno_email == '' || facul_disciplina == '' || facul_curso == ''){
             history.replace('/cadastro')
-            console.log(facul_disciplina)
-            console.log(facul_curso)
         }
-        
-        const res = await Api.post('create', data).finally( () => {
-            history.push('/')
-        })
+        await (
+            Api.post('create', data).then(() => {  
+            })
+        )
     }
     return(
         <div className="container_ct">
